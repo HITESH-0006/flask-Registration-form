@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}User Registration{% endblock %}</title>
+  <style>
+    :root {
+      --bg: #f5f6f8;
+      --surface: #ffffff;
+      --text: #1b1f27;
+      --muted: #5b6472;
+      --line: #d5d9e0;
+      --accent: #1f4fd8;
+      --accent-hover: #173eaa;
+      --error: #b42318;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #14171c;
+        --surface: #1d2128;
+        --text: #eceff4;
+        --muted: #9aa4b2;
+        --line: #353b46;
+        --accent: #6b8cff;
+        --accent-hover: #8aa4ff;
+        --error: #ff8a80;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      background: var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.5;
+    }
+    main {
+      width: 100%;
+      max-width: 26rem;
+      padding: 2rem;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+    }
+    h1 { margin: 0 0 0.25rem; font-size: 1.5rem; }
+    .lead { margin: 0 0 1.5rem; color: var(--muted); }
+    .field { margin-bottom: 1.1rem; }
+    label { display: block; margin-bottom: 0.3rem; font-weight: 600; }
+    input {
+      width: 100%;
+      padding: 0.6rem 0.7rem;
+      font: inherit;
+      color: var(--text);
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+    }
+    input:focus-visible, .button:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 1px;
+    }
+    input[aria-invalid="true"] { border-color: var(--error); }
+    .error { margin: 0.3rem 0 0; color: var(--error); font-size: 0.9rem; }
+    .button {
+      display: inline-block;
+      width: 100%;
+      padding: 0.7rem 1rem;
+      font: inherit;
+      font-weight: 600;
+      text-align: center;
+      text-decoration: none;
+      color: #fff;
+      background: var(--accent);
+      border: 0;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .button:hover { background: var(--accent-hover); }
+    dl { margin: 0 0 1.5rem; }
+    .row { display: flex; gap: 1rem; padding: 0.7rem 0; border-bottom: 1px solid var(--line); }
+    .row:last-child { border-bottom: 0; }
+    dt { flex: 0 0 5.5rem; color: var(--muted); }
+    dd { margin: 0; font-weight: 600; overflow-wrap: anywhere; }
+  </style>
+</head>
+<body>
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>

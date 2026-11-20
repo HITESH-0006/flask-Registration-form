@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Registration confirmed{% endblock %}
+
+{% block content %}
+  <h1>Registration confirmed</h1>
+  <p class="lead">Thank you, {{ data.name }}. Here are the details you submitted.</p>
+
+  <dl>
+    <div class="row"><dt>Name</dt><dd>{{ data.name }}</dd></div>
+    <div class="row"><dt>City</dt><dd>{{ data.city }}</dd></div>
+    <div class="row"><dt>Phone</dt><dd>{{ data.phone }}</dd></div>
+  </dl>
+
+  <a class="button" href="{{ url_for('index') }}">Register another user</a>
+{% endblock %}

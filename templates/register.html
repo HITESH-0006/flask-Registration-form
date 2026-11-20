@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+  <h1>Register</h1>
+  <p class="lead">Fill in your details to create an account.</p>
+
+  <form action="{{ url_for('submit') }}" method="post">
+    <div class="field">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" value="{{ data.get('name', '') }}"
+             maxlength="100" required autocomplete="name"
+             {% if errors.get('name') %}aria-invalid="true" aria-describedby="name-error"{% endif %}>
+      {% if errors.get('name') %}<p class="error" id="name-error">{{ errors['name'] }}</p>{% endif %}
+    </div>
+
+    <div class="field">
+      <label for="city">City</label>
+      <input type="text" id="city" name="city" value="{{ data.get('city', '') }}"
+             maxlength="100" required autocomplete="address-level2"
+             {% if errors.get('city') %}aria-invalid="true" aria-describedby="city-error"{% endif %}>
+      {% if errors.get('city') %}<p class="error" id="city-error">{{ errors['city'] }}</p>{% endif %}
+    </div>
+
+    <div class="field">
+      <label for="phone">Phone number</label>
+      <input type="tel" id="phone" name="phone" value="{{ data.get('phone', '') }}"
+             maxlength="20" required autocomplete="tel"
+             {% if errors.get('phone') %}aria-invalid="true" aria-describedby="phone-error"{% endif %}>
+      {% if errors.get('phone') %}<p class="error" id="phone-error">{{ errors['phone'] }}</p>{% endif %}
+    </div>
+
+    <button type="submit" class="button">Register</button>
+  </form>
+{% endblock %}
